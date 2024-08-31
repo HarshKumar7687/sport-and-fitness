@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surya Namaskar (Sun Salutation)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #FF7043;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        h2 {
+            color: #FF7043;
+        }
+        .pose-step {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .pose-step h3 {
+            margin-top: 0;
+        }
+        .animation {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .animation img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #FF7043;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .start-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #FF7043;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+            margin: 20px 0;
+            text-align: center;
+            display: block;
+            max-width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .start-button:hover {
+            background-color: #FF5722;
+        }
+        /* Popup styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        .popup-content img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .close-popup {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #FF7043;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Surya Namaskar (Sun Salutation)</h1>
+    </header>
+
+    <div class="container">
+        <section class="pose-step">
+            <h2>Sun Salutation Sequence</h2>
+            <p>Surya Namaskar, or Sun Salutation, is a sequence of 12 powerful yoga poses. It provides a great cardiovascular workout, while also stretching and toning the muscles. Here are the steps involved:</p>
+            
+            <!-- Start Button -->
+            <button class="start-button" onclick="startSuryaNamaskar()">Start Surya Namaskar</button>
+
+            <div class="animation">
+                <h3>Pose 1: Pranamasana (Prayer Pose)</h3>
+                <img src="media/image/step1.png" alt="Pranamasana Animation">
+                <p>Stand at the edge of your mat, keep your feet together, and balance your weight equally on both feet. Expand your chest and relax your shoulders. As you breathe in, lift both your arms up from the sides, and as you exhale, bring your palms together in front of your chest in prayer position.</p>
+            </div>
+            
+            <div class="animation">
+                <h3>Pose 2: Hastauttanasana (Raised Arms Pose)</h3>
+                <img src="media/image/step2.jpg" alt="Hastauttanasana Animation">
+                <p>With a deep inhalation, raise your arms upwards and backwards, keeping the biceps close to the ears. Try to stretch the whole body backward while keeping the feet grounded.</p>
+            </div>
+            
+            <div class="animation">
+                <h3>Pose 3: Hasta Padasana (Hand to Foot Pose)</h3>
+                <img src="media/image/step3.jpg" alt="Hasta Padasana Animation">
+                <p>Exhale and bend forward from the waist while keeping the spine erect. As you exhale completely, bring your hands down to the floor beside your feet.</p>
+            </div>
+            
+            <div class="animation">
+                <h3>Pose 4: Ashwa Sanchalanasana (Equestrian Pose)</h3>
+                <img src="media/image/step4.jpg" alt="Ashwa Sanchalanasana Animation">
+                <p>Inhale and push your right leg back as far as possible. Bring the right knee to the floor and look up. Keep your left foot between the palms.</p>
+            </div>
+
+            <div class="animation">
+                <h3>Pose 5: Dandasana (Stick Pose)</h3>
+                <img src="media/image/step5.webp" alt="Dandasana Animation">
+                <p>As you breathe in, take the left leg back and bring the whole body in a straight line. Keep your arms perpendicular to the floor.</p>
+            </div>
+
+            <div class="animation">
+                <h3>Pose 6: Ashtanga Namaskara (Salute with Eight Parts or Points)</h3>
+                <img style="width: 500px;" src="media/image/step6.png" alt="Ashtanga Namaskara Animation">
+                <p>Exhale and bring your knees down to the floor. Slightly touch your chest and chin to the floor while raising your hips slightly off the floor. The eight parts of the body that touch the floor in this position are your chest, chin, two hands, two knees, and two feet.</p>
+            </div>
+
+            <div class="animation">
+                <h3>Pose 7: Bhujangasana (Cobra Pose)</h3>
+                <img src="media/image/step7.jpg" alt="Bhujangasana Animation">
+                <p>Slide forward and raise the chest up into the Cobra Pose. You may keep your elbows bent in this pose, with the shoulders away from the ears. Look up.</p>
+            </div>
+
+            <div class="animation">
+                <h3>Pose 8: Adho Mukha Svanasana (Downward Facing Dog Pose)</h3>
+                <img src="media/image/step8.jpg" alt="Adho Mukha Svanasana Animation">
+                <p>Exhale and lift your hips, moving your head downward into the Downward Dog Pose. Keep your heels on the ground.</p>
+            </div>
+
+            <div class="animation">
+                <h3>Pose 9: Ashwa Sanchalanasana (Equestrian Pose)</h3>
+                <img src="media/image/step4.jpg" alt="Ashwa Sanchalanasana Animation">
+                <p>Inhale and bring your right foot forward between your hands. The left knee goes down to the floor. Press the hips down and look up. Repeat for the other side.</p>
+            </div>
+
+            <div class="animation">
+                <h3>Pose 10: Hasta Padasana (Hand to Foot Pose)</h3>
+                <img src="media/image/step3.jpg" alt="Hasta Padasana Animation">
+                <p>Exhale and bring your left foot forward. Keep your palms on the floor. You may bend your knees if necessary.</p>
+            </div>
+
+            <div class="animation">
+                <h3>Pose 11: Hastauttanasana (Raised Arms Pose)</h3>
+                <img  src="media/image/step2.jpg" alt="Hastauttanasana Animation">
+                <p>Inhale and lift your arms up and back, keeping the biceps close to your ears. Stretch your whole body backward.</p>
+            </div>
+
+            <div class="animation">
+                <h3>Pose 12: Tadasana (Mountain Pose)</h3>
+                <img style="width: 500px;" src="media/image/step12.jpg" alt="Tadasana Animation">
+                <p>Exhale and straighten the body, bringing the arms down. Stand tall with feet together and relax.</p>
+            </div>
+        </section>
+
+        <a href="../index.html" class="back-link">Back to Workouts</a>
+    </div>
+
+    <!-- Popup Overlay -->
+    <div id="popup" class="popup-overlay">
+        <div class="popup-content">
+            <p>Do 10 rounds of Surya Namaskar!</p>
+            <img src="media/image/suryanamaskar.gif" alt="Surya Namaskar GIF">
+            <button class="close-popup" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function startSuryaNamaskar() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

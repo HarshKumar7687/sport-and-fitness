@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Store Bill</title>
+  <style>
+ body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    h1, h3 {
+      text-align: center;
+      margin: 10px;
+    }
+
+    .cart {
+      width: 80%;
+      max-width: 600px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    .remove-btn {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      font-size: 0.9em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .remove-btn:hover {
+      background-color: #c82333;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-top: 20px;
+      text-align: right;
+      font-weight: bold;
+    }
+    .back {
+      margin-top: 50px;
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(145deg, #3498db, #2980b9); 
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    transition: all 0.3s ease; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+    overflow: hidden;
+}
+
+.back::before, .back::after {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+    border-radius: 50%;
+    pointer-events: none; 
+}
+
+.back::before {
+    top: -50%;
+    left: -50%;
+    transform: scale(0);
+}
+
+.back::after {
+    bottom: -50%;
+    right: -50%;
+    transform: scale(0);
+}
+
+.back:hover::before, .back:hover::after {
+    transform: scale(1); 
+}
+
+.back:hover {
+    background: linear-gradient(145deg, #2ecc71, #27ae60);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); 
+    transform: translateY(-3px); 
+}
+
+.back:active {
+    background: linear-gradient(145deg, #1abc9c, #16a085); 
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back:hover span {
+    transform: scale(1.05); 
+}
+
+.back.clicked {
+    background: linear-gradient(145deg, #f1c40f, #f39c12);
+    transition: all 0.4s ease;
+}
+
+.back.clicked::before, .back.clicked::after {
+    display: none; 
+}
+
+
+    @media (max-width: 768px) {
+      .cart {
+        width: 90%;
+      }
+
+      li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .remove-btn {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Bill</h1>
+  <h3>Fit-Club Sports Store</h3>
+  <div class="cart">
+    <h2>Purchased Items</h2>
+    <ul id="bill-items"></ul>
+    <p>Total: ₹<span id="final-price">0</span></p>
+  </div>
+<span class="back"><a href="sportsStore.html">Back To Sports Store</a></span>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const billItems = document.getElementById('bill-items');
+      const finalPrice = document.getElementById('final-price');
+
+      // Retrieve cart and total price from localStorage
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let totalPrice = parseFloat(localStorage.getItem('totalPrice')) || 0;
+
+      // Function to update and display the total price
+      const updateTotalPrice = () => {
+        totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        finalPrice.textContent = totalPrice.toFixed(2);
+        localStorage.setItem('totalPrice', totalPrice.toFixed(2));
+      };
+
+      // Function to display cart items
+      const displayCartItems = () => {
+        billItems.innerHTML = ''; // Clear previous items
+        cart.forEach((item, index) => {
+          const billListItem = document.createElement('li');
+          billListItem.innerHTML = `
+            ${item.name} - ₹${item.price} x ${item.quantity} = ₹${(item.price * item.quantity).toFixed(2)}
+            <button class="remove-btn" data-index="${index}">Remove</button>
+          `;
+          billItems.appendChild(billListItem);
+        });
+      };
+
+      // Function to remove an item from the cart
+      const removeItemFromCart = (index) => {
+        cart.splice(index, 1); 
+        localStorage.setItem('cart', JSON.stringify(cart)); 
+        displayCartItems();
+        updateTotalPrice(); 
+      };
+
+      // Initial rendering of cart items and total price
+      displayCartItems();
+      updateTotalPrice();
+
+      // Event delegation to handle remove button clicks
+      billItems.addEventListener('click', (event) => {
+        if (event.target.classList.contains('remove-btn')) {
+          const itemIndex = event.target.getAttribute('data-index');
+          removeItemFromCart(itemIndex); 
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="profile.html">Your Profile</a>
+            <a href="index.html">Login</a>
+            <span></span>
+        </nav>
+    </header>
+    <section class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p class="intro">We focus on spreading awareness about Fitness and Sports.</p>
+            <div class="service-cards">
+                <div class="card">
+                    <img src="buildMuscles.jpg" alt="Build-Muscles">
+                    <h3>Help in Building Muscles</h3>
+                    <p>We have wide range of plans and exercises for gaining weight and Building Muscles.</p>
+                </div>
+                <div class="card">
+                    <img src="loose weight.jpg" alt="Loose-Weight">
+                    <h3>Helps in Weight Loss journey</h3>
+                    <p>We excel in providing our service and helping customers in their weight-loss journey.</p>
+                </div>
+                <div class="card">
+                    <img src="motivation.jpg" alt="motivation">
+                    <h3>Motivating People for staying fit.</h3>
+                    <p>We motivate peoples and tell them the importance of Staying fit</p>
+                </div>
+                <div class="card">
+                    <img src="sports.jpg" alt="Sports">
+                    <h3>Informing Youth about popular Sports</h3>
+                    <p>Our site provides basic information about most of the popular Sports so Youth can develope interest in them</p>
+                </div>
+                <div class="card">
+                    <img src="balanced-diet.jpg" alt="Diet">
+                    <h3>Calorie Checker and BMI Calculator</h3>
+                    <p>Our site calculates the BMI Checks that users daily calorie levels are maintained or not.</p>
+                </div>
+                <div class="card">
+                    <img src="sportsStore.jpg" alt="Sports store">
+                    <h3>Bill Calculator for a Sports-Store</h3>
+                    <p>This feature of our site is only for Sports shop owners it helps them to generate the bill</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+         document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('mousemove', (e) => {
+        const span = document.querySelector('nav span');
+        const linkRect = link.getBoundingClientRect();
+        const navRect = link.parentElement.getBoundingClientRect();
+        
+        // Calculate the left position and the width of the span
+        const leftPosition = linkRect.left - navRect.left;
+        const spanWidth = linkRect.width;
+        
+        // Update the span position and width
+        span.style.left = `${leftPosition}px`;
+        span.style.width = `${spanWidth}px`;
+    });
+
+    link.addEventListener('mouseleave', () => {
+        const span = document.querySelector('nav span');
+        span.style.width = '0px';
+    });
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Loss Workouts & Yoga</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+    
+        .container {
+            padding: 20px;
+        }
+        .workouts, .yoga {
+            margin: 20px 0;
+        }
+        .workouts h2, .yoga h2 {
+            color: #4CAF50;
+        }
+        .workout-list, .yoga-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .workout-list li, .yoga-list li {
+            background-color: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
+        .workout-list a, .yoga-list a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .workout-list a:hover, .yoga-list a:hover {
+            background-color: #e0e0e0;
+            transition: background-color 0.3s ease;
+        }
+        .div{
+            width: 25%;
+            margin: 10 px 0;
+            padding:15px;
+            border-radius: 5px;
+            background-color: white;
+        }
+        
+footer {
+   max-width: 100%;
+    height: 70px;
+    font-size: 2rem;
+}
+
+nav {
+    position: relative;
+    border-radius: 8px;
+    width: 100%;
+    height: 70px;
+    background: #222;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav a {
+    position: relative;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 23px;
+    z-index: 1;
+    transition: color 0.3s ease-in-out;
+}
+
+nav span {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    border-radius: 5px;
+    width: 140px;
+    height: 100%;
+    background: linear-gradient(45deg, #4f1919, #ff3333);
+    transition: left 0.2s ease, width 0.2s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Weight Loss Workouts & Yoga</h1>
+    </header>
+    <div class="container">
+        <section id="workouts" class="workouts">
+            <h2>Weight Loss Workouts</h2>
+            <ul class="workout-list">
+                <li>
+                <a href="hiit/hiitworkout.html">
+                        <h3>HIIT Workout</h3>
+                        <p>High-Intensity Interval Training is a great way to burn fat in a short amount of time.</p>
+                </a>
+            </li>
+                <li>
+                    <a href="cardio/cardio.html">
+                        <h3>Cardio Workout</h3>
+                        <p>Steady-state cardio like running or cycling helps in burning calories.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="strengthtraining/strengthtraining.html">
+                        <h3>Strength Training</h3>
+                        <p>Building muscle helps increase your metabolism and burn fat.</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="yoga" class="yoga">
+            <h2>Yoga</h2>
+            <ul class="yoga-list">
+                <li>
+                    <a href="suryanamaskar/suryanamaskar.html">
+                        <h3>Sun Salutation (Surya Namaskar)</h3>
+                        <p>A series of 12 powerful yoga poses that provide a great cardiovascular workout.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="warriorpose/warriorpose.html">
+                        <h3>Warrior Pose (Virabhadrasana)</h3>
+                        <p>This pose strengthens your legs and core while helping you improve balance.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="downwarddog/downwarddog.html">
+                        <h3>Downward Dog (Adho Mukha Svanasana)</h3>
+                        <p>This foundational pose stretches your entire body and builds strength.</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <nav>
+            <a href="../home.html">Home</a>
+            <a href="../sportsStore.html">Sports Store</a>
+            <a href="../bmiCalculator.html">BMI</a>
+            <a href="../sports.html">Sports</a> 
+            <a href="../diet.html">Diet</a>
+            <span></span>
+        </nav>
+    </footer>
+</body>
+<script>
+    document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('mousemove', (e) => {
+        const span = document.querySelector('nav span');
+        const linkRect = link.getBoundingClientRect();
+        const navRect = link.parentElement.getBoundingClientRect();
+        
+        // Calculate the left position and the width of the span
+        const leftPosition = linkRect.left - navRect.left;
+        const spanWidth = linkRect.width;
+        
+        // Update the span position and width
+        span.style.left = `${leftPosition}px`;
+        span.style.width = `${spanWidth}px`;
+    });
+
+    link.addEventListener('mouseleave', () => {
+        const span = document.querySelector('nav span');
+        span.style.width = '0px';
+    });
+});
+
+
+</script>
+</html>

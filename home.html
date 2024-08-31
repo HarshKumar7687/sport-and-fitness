@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <h1>Fit-Club</h1>
+        <h3>Sports and Fitness</h3>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="index.html">Login</a>
+            <span></span>
+        </nav>
+    </header>
+    <main>
+            <!-- carousel -->
+        <div class="carousel">
+            <!-- list item -->
+            <div class="list">
+                <div class="item">
+                    <a href="bodyweight/index.html"><img src="buildMuscles.jpg"></a>
+                      <div class="content">
+                          <div class="author">Clickable-images</div>
+                          <div class="title">Fit-Club</div>
+                          <div class="topic">Work-out and Yoga</div>
+                          <div class="des">
+                              Muscles can be built through exercise gain muscles is equal to gaining weight
+                          </div>
+                      </div>
+                  </div>
+            
+                <div class="item">
+                    <a href="sports.html"><img src="sports.jpg"></a>
+                    <div class="content">
+                        <div class="author">Clickable-images</div>
+                        <div class="title">Fit-Club</div>
+                        <div class="topic">Sports</div>
+                        <div class="des">
+                            Sports is an Entertaining way to stay fit.
+                            Sports is an essential part of our life. After clicking on the image you can know info about various sports.
+                        </div>
+                        </div>
+                    </div>
+                <div class="item">
+                  <a href="bmiCalculator.html"><img src="bmi1.jpg"></a>
+                    <div class="content">
+                        <div class="author">Clickable-images</div>
+                        <div class="title">Fit-Club</div>
+                        <div class="topic">BMI</div>
+                        <div class="des">
+                           BMI is commonly known as body mass index used to know about fitness level of a person
+                        </div>
+                      
+                    </div>
+                </div>
+               
+                <div class="item">
+                  <a href="diet.html"><img src="balanced-diet.jpg"></a>
+                    <div class="content">
+                        <div class="author">Clickable-images</div>
+                        <div class="title">Fit-Club</div>
+                        <div class="topic">Balanced Diet</div>
+                        <div class="des">
+                            A balanced diet is compulsory for healthy living. It cointains all the nutrients in right order
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="item">
+                    <a href="sportsStore.html"><img src="sportsStore.jpg"></a>
+                    <div class="content">
+                        <div class="author">Clickable-images</div>
+                        <div class="title">Fit-Club</div>
+                        <div class="topic">Sports Store</div>
+                        <div class="des">
+                            This is a simple bill calculator for sports shop owner or worker
+                        </div>
+            </div>
+            </div>
+            </div>
+            <!-- list thumnail -->
+            <div class="thumbnail">
+                <div class="item">
+                    <img src="buildMuscles.jpg">
+                    <div class="content">
+                        <div class="title">
+                            Work-out and Yoga
+                        </div>
+                        <div class="description">
+                            yoga
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="item">
+                    <img src="sports.jpg">
+                      <div class="content">
+                          <div class="title">
+                              Sports
+                          </div>
+                          <div class="description">
+                              Details about Some Popular Sports
+                          </div>
+                      </div>
+                  </div>
+
+                <div class="item">
+                    <img src="bmi1.jpg">
+                    <div class="content">
+                        <div class="title">
+                            BMI
+                        </div>
+                        <div class="description">
+                            BMI Calculator
+                        </div>
+                    </div>
+                </div>
+               
+              <div class="item">
+                <img src="balanced-diet.jpg">
+                <div class="content">
+                    <div class="title">
+                        Balanced-diet
+                    </div>
+                    <div class="description">
+                        Proper Diet
+                    </div>
+                </div>
+            </div>
+    
+              <div class="item">
+                <a href="#"><img src="sportsStore.jpg"></a>
+                  <div class="content">
+                      <div class="title">
+                         Sports Store
+                      </div>
+                      <div class="description">
+                         Bill Calculator
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <!-- next prev -->
+    
+            <div class="arrows">
+                <button id="prev"><</button>
+                <button id="next">></button>
+            </div>
+            <!-- time running -->
+            <div class="time"></div>
+        </div>
+        <!-- Chat Icon Button -->
+    <div id="chat-icon" class="chat-icon">
+        <img id="icon-image" src="chat box.png" alt="Message Icon">
+    </div>
+
+    <!-- Chat Container -->
+    <div id="chat-container" class="chat-container hidden">
+        <div class="chat-header">
+            <h2>Fitness Q&A Bot</h2>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <!-- Messages will appear here -->
+        </div>
+        <div class="chat-input-container">
+            <select id="question-select">
+                <option value="" disabled selected>Select a question...</option>
+                <option value="What is the best time to work out?">What is the best time to work out?</option>
+                <option value="How much water should I drink daily?">How much water should I drink daily?</option>
+                <option value="What is a good post-workout meal?">What is a good post-workout meal?</option>
+                <option value="How often should I do cardio?">How often should I do cardio?</option>
+                <option value="What exercises are best for weight loss?">What exercises are best for weight loss?</option>
+            </select>
+            <button id="send-btn">Ask</button>
+        </div>
+    </div>
+     </main>
+    <footer>
+        <div class="quote-container">
+            <p id="quote">Believe you can and you're halfway there.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

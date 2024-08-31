@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Tracker</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <header>
+        <h1>Calorie Tracker</h1>
+    </header>
+    
+    <main>
+        <section class="calorie-calculator">
+            <h2>Calculate Your Daily Calorie Needs</h2>
+            <form id="calorieCalculatorForm">
+                <label for="bmi">BMI:</label>
+                <input type="number" id="bmi" name="bmi" step="0.1" required>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+
+                <button type="submit">Calculate Calories</button>
+            </form>
+
+            <div class="calorie-result">
+                <h3>Daily Calorie Needs: <span id="calorieNeeds">0</span> calories</h3>
+                <h3>Total Calories Consumed: <span id="totalCalories">0</span> calories</h3>
+                <h3>Calories Remaining: <span id="caloriesRemaining">0</span> calories</h3>
+            </div>
+        </section>
+
+        <section class="meal-tracker">
+            <h2>Track Your Meals</h2>
+            <form id="mealForm">
+                <label for="mealType">Meal Type:</label>
+                <select id="mealType" name="mealType" required>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="snacks">Snacks</option>
+                    <option value="dinner">Dinner</option>
+                </select>
+
+                <label for="food">Food Item:</label>
+                <input type="text" id="food" name="food" required>
+
+                <label for="quantity">Quantity (g):</label>
+                <input type="number" id="quantity" name="quantity" step="0.1" required>
+
+                <label for="calories">Calories per 100g:</label>
+                <input type="number" id="calories" name="calories" step="0.1" required>
+
+                <button type="submit">Add Meal</button>
+            </form>
+
+            <div class="meal-sections">
+                <div id="breakfast" class="meal-section">
+                    <h3>Breakfast</h3>
+                    <ul></ul>
+                </div>
+                <div id="lunch" class="meal-section">
+                    <h3>Lunch</h3>
+                    <ul></ul>
+                </div>
+                <div id="snacks" class="meal-section">
+                    <h3>Snacks</h3>
+                    <ul></ul>
+                </div>
+                <div id="dinner" class="meal-section">
+                    <h3>Dinner</h3>
+                    <ul></ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    
+    <div class="mode-toggle-container">
+        <button id="modeToggle" class="mode-btn">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+        </button>
+    </div>
+
+    <footer>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="sportsStore.html">Sports Store</a>
+            <a href="sports.html">Sports</a>
+            <a href="bodyweight/index.html">Work-out and Yoga</a>
+            <a href="bmiCalculator.html">BMI</a>
+            <span></span>
+        </nav>
+    </footer>
+
+    <script src="app3.js"></script>
+</body>
+</html>

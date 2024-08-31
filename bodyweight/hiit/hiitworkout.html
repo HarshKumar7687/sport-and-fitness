@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIIT Workout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        .workout-step {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .workout-step h3 {
+            margin-top: 0;
+        }
+        .animation {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .animation img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        #start-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #FF7043;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+            margin: 20px 0;
+            display: block;
+            text-align: center;
+        }
+        #start-button:hover {
+            background-color: #FF5722;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        #modal-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #timer {
+            font-size: 48px;
+            margin: 20px 0;
+            color: #FF7043;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .exercise-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        #pause-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        #pause-button:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HIIT Workout</h1>
+    </header>
+
+    <div class="container">
+        <section class="workout-step">
+            <h2>High-Intensity Interval Training (HIIT)</h2>
+            <p>HIIT workouts are a fantastic way to burn fat quickly and efficiently. Below are some exercises commonly included in a HIIT routine:</p>
+            
+            <div class="animation">
+                <h3>Exercise 1: Jumping Jacks</h3>
+                <img src="media/gif/jj.gif" alt="Jumping Jacks Animation">
+                <p>Jumping jacks are a full-body exercise that increases your heart rate and burns calories.</p>
+            </div>
+            
+            <div class="animation">
+                <h3>Exercise 2: Burpees</h3>
+                <img src="media/gif/bp.gif" alt="Burpees Animation">
+                <p>Burpees are a high-intensity exercise that works your arms, chest, quads, glutes, hamstrings, and abs.</p>
+            </div>
+            
+            <div class="animation">
+                <h3>Exercise 3: Mountain Climbers</h3>
+                <img src="media/gif/mc.gif" alt="Mountain Climbers Animation">
+                <p>Mountain climbers are a cardio-intensive exercise that strengthens your core, glutes, legs, and shoulders.</p>
+            </div>
+
+            <!-- Start Workout Button -->
+            <button id="start-button">Start Workout</button>
+        </section>
+
+        <a href="../index.html" class="back-link">Back to Workouts</a>
+    </div>
+
+    <!-- Modal for Timer and Exercise Display -->
+    <div id="modal">
+        <div id="modal-content">
+            <span class="close">&times;</span>
+            <div class="exercise-name" id="exercise-name">Get Ready!</div>
+            <div id="timer">45</div>
+            <div class="animation" id="exercise-container">
+                <img id="exercise-gif" src="media/gif/jj.gif" alt="Exercise Animation">
+                <button id="pause-button" style="display: none;">Pause</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("modal");
+        const startButton = document.getElementById("start-button");
+        const closeModal = document.getElementsByClassName("close")[0];
+        const timerDisplay = document.getElementById("timer");
+        const exerciseNameDisplay = document.getElementById("exercise-name");
+        const exerciseGifDisplay = document.getElementById("exercise-gif");
+        const pauseButton = document.getElementById("pause-button");
+        const exerciseContainer = document.getElementById("exercise-container");
+        let countdown;
+        let isPaused = false;
+        let timeLeft;
+
+        const exercises = [
+            { name: "Jumping Jacks", duration: 45, gif: "media/gif/jj.gif", rest: false },
+            { name: "Rest", duration: 20, gif: "", rest: true },
+            { name: "Burpees", duration: 45, gif: "media/gif/bp.gif", rest: false },
+            { name: "Rest", duration: 20, gif: "", rest: true },
+            { name: "Mountain Climbers", duration: 45, gif: "media/gif/mc.gif", rest: false }
+        ];
+
+        function startWorkout() {
+            let currentExercise = 0;
+            startExercise(currentExercise);
+
+            function startExercise(index) {
+                const exercise = exercises[index];
+                exerciseNameDisplay.textContent = exercise.name;
+                timeLeft = exercise.duration;
+                timerDisplay.textContent = timeLeft;
+                modal.style.display = "flex";
+
+                if (exercise.rest) {
+                    exerciseGifDisplay.style.display = "none";
+                    pauseButton.style.display = "block";
+                } else {
+                    exerciseGifDisplay.style.display = "block";
+                    pauseButton.style.display = "none";
+                    exerciseGifDisplay.src = exercise.gif;
+                }
+
+                countdown = setInterval(() => {
+                    if (!isPaused) {
+                        timeLeft--;
+                        timerDisplay.textContent = timeLeft;
+
+                        if (timeLeft <= 0) {
+                            clearInterval(countdown);
+                            currentExercise++;
+                            if (currentExercise < exercises.length) {
+                                setTimeout(() => startExercise(currentExercise), 1000);
+                            } else {
+                                exerciseNameDisplay.textContent = "Workout Complete!";
+                                timerDisplay.textContent = "";
+                            }
+                        }
+                    }
+                }, 1000);
+            }
+        }
+
+        // Pause button functionality
+        pauseButton.onclick = function() {
+            isPaused = !isPaused;
+            pauseButton.textContent = isPaused ? "Resume" : "Pause";
+        };
+
+        // Open modal when Start Workout button is clicked
+        startButton.onclick = function() {
+            startWorkout();
+        };
+
+        // Close modal when the 'x' is clicked
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+            clearInterval(countdown);
+        };
+
+        // Close modal when clicking outside of the modal content
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                clearInterval(countdown);
+            }
+        };
+    </script>
+</body>
+</html>
+

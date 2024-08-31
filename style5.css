@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #f4f4f4;
+    line-height: 1.6;
+}
+       
+header {
+    width: 100%;
+    height: 50px;
+    font-size: 1.5rem;
+}
+
+nav {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav a {
+    position: relative;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 23px;
+    z-index: 1;
+    transition: color 0.3s ease-in-out;
+}
+
+
+
+nav span {
+    position: absolute;
+    top: 0;
+    left: 27px;
+    width: 95px;
+    height: 100%;
+    background: linear-gradient(45deg, #4f1919, #ff3333);
+    transition: left 0.2s ease, width 0.2s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+ 
+h2 {
+    text-align: center;
+    font-size: 100px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: black;
+}
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 30px;
+    color: white;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card {
+    flex: 1 1 calc(33.333% - 20px);
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    max-width: 100%;
+    height: auto;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .service-cards {
+        flex-direction: column;
+    }
+
+    .card {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .intro {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: black;
+        }
+        .main {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .profile-container {
+            padding: 20px;
+            margin: 20px;
+            background-color: red;
+            color: white;
+        }
+        h2 {
+            font-size: 100px;
+            color: white;
+            padding-top: 0;
+            margin-top: 0;
+        }
+        h3 {
+            font-size: 40px;
+        }
+        p {
+            font-size: 20px;
+        }
+        /* Styling for when colors are switched */
+        .switched-profile-container {
+            background-color: black;
+        }
+        .switched-h2 {
+            color: red;
+        }
+        button{
+            width: 100px;
+            height: 40px;
+            font-size: 1.2em;
+            border-radius: 10px;
+        }
+        
+header {
+    width: 100%;
+    height: 50px;
+    font-size: 2rem;
+}
+
+nav {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav a {
+    position: relative;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 23px;
+    z-index: 1;
+    transition: color 0.3s ease-in-out;
+}
+
+
+
+nav span {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    width: 95px;
+    height: 100%;
+    background: linear-gradient(45deg, #4f1919, #ff3333);
+    transition: left 0.2s ease, width 0.2s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="index.html">Login</a>
+            <span></span>
+        </nav>
+    </header>
+    <div class="main">
+        <h2 id="profile-title">User Profile</h2>
+        <div class="profile-container" id="profile-container">
+            <h3>This data was taken at the time of sign-up</h3>
+            <p><strong>Username:</strong> <span id="username"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+        </div>
+        <button id="switchButton">Switch!</button>
+    </div>
+
+    <script>
+        // Retrieve stored user data
+        const username = localStorage.getItem('username');
+        const email = localStorage.getItem('email');
+
+        // Display user data on profile page
+        document.getElementById('username').textContent = username;
+        document.getElementById('email').textContent = email;
+
+        // Switch background colors on button click
+        document.getElementById('switchButton').addEventListener('click', function() {
+            const profileContainer = document.getElementById('profile-container');
+            const profileTitle = document.getElementById('profile-title');
+
+            profileContainer.classList.toggle('switched-profile-container');
+            profileTitle.classList.toggle('switched-h2');
+        });
+        document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('mousemove', (e) => {
+        const span = document.querySelector('nav span');
+        const linkRect = link.getBoundingClientRect();
+        const navRect = link.parentElement.getBoundingClientRect();
+        
+        // Calculate the left position and the width of the span
+        const leftPosition = linkRect.left - navRect.left;
+        const spanWidth = linkRect.width;
+        
+        // Update the span position and width
+        span.style.left = `${leftPosition}px`;
+        span.style.width = `${spanWidth}px`;
+    });
+
+    link.addEventListener('mouseleave', () => {
+        const span = document.querySelector('nav span');
+        span.style.width = '0px';
+    });
+});
+
+    </script>
+</body>
+</html>
