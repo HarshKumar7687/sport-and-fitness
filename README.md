@@ -31,7 +31,7 @@ This website provides users with tools, information, and motivation to stay fit 
 
 ---
 
-## 📂 Project Structure  
+## 📂 Project Structure 
 
 ```bash
 .
