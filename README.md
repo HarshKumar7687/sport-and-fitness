@@ -1,4 +1,4 @@
-# 🏋️‍♂️ Sports & Fitness Website  
+# 🏋️‍♂️ Sports & Fitness Website  this is my first project
 
 A simple and responsive **Sports & Fitness website** built using **HTML, CSS, and JavaScript**.  
 This website provides users with tools, information, and motivation to stay fit and healthy.  
