@@ -15,7 +15,9 @@ This website provides users with tools, information, and motivation to stay fit 
 - 💳 **Checkout Page** – Simple checkout flow for purchasing items  
 - ⚽ **Sports Information** – Dedicated pages about the main sports featured in the carousel  
 - 📊 **BMI Calculator** – Helps users track and maintain fitness goals  
+- 🍎 **Calorie Checker** – Track total calories consumed in a day  
 - 🏃 **Exercise Plan with GIFs & Timer** – Visual exercise guides with a built-in timer  
+- 🌗 **Light & Dark Mode** – Toggle between light and dark themes for better user experience  
 - 💬 **Simple Chatbot** – Can answer a few fitness-related questions  
 - 📝 **Footer with Moving Motivational Quotes** – Keeps users motivated while browsing  
 
@@ -39,6 +41,7 @@ This website provides users with tools, information, and motivation to stay fit 
 ├── store.html          # Sports store
 ├── checkout.html       # Checkout page
 ├── bmi.html            # BMI calculator
+├── calorie.html        # Calorie checker
 ├── exercise.html       # Exercise plan with GIFs & timer
 ├── style.css           # Main stylesheet
 ├── script.js           # Main JavaScript
